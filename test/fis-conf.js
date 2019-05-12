@@ -48,7 +48,8 @@ fis.match('{/components/lib/require/require.js, /resource-map.js}', {
 fis.match('/src/**\.{html, vm, tpl, jsp}:js', {
     useCompile: true,
     isMod: true,
-    parser: fis.plugin('babel-6', {
+    isJsLike: true,
+    parser: [ fis.plugin('babel-6', {
         presets: [["env", {
             "debug": true,
             "targets": {
@@ -61,8 +62,15 @@ fis.match('/src/**\.{html, vm, tpl, jsp}:js', {
                     "not op_mini all"]
             }
         }]]
-    })
+    }), 
+    parserPartial
+]
 });
+
+function parserPartial(content, file, opt){
+    // TOOD babel会把require放到 require.async 外面，导致require提前（在require.js未完全加载resourceMap的情况下加载
+    return content;
+}
 
 
 fis.match('/node_modules/**.js', {
