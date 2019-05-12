@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>D </title>
+            
+                <link rel="stylesheet" href="/common.css">
+            
+                <script src="/components/lib/require/require.js"></script>
+                <script src="/resource-map.js"></script>
+
+                <style>
+                    .main{
+                        width: 480px;
+                        height: 400px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        border: 1px solid #aaa;
+                        background: #ccc;
+                        border-radius: 4px;
+
+                        text-align: center;
+                        line-height: 2;
+                    }
+                </style>
+            </head>
+<body>
+    <div class="main">
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="username"><br>
+            <input type="password" name="password" placeholder="password"><br>
+            <input type="submit" value="login" >
+        </form>
+    </div>
+
+    <script>
+        require.async('/components/index.js', function(){});
+    
+    </script>
+</body>
+</html>

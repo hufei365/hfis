@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const fis = require("fis3");
+const Liftoff = require("liftoff");
+const argv = require("minimist")(process.argv.slice(2));
+const path = require("path");
+const cli = new Liftoff({
+	"name": "hfis",
+	"processTitle": "hfis",
+	"moduleName": "hfis",
+	"configName": "fis-conf",
+
+	// only js supported!
+	extensions: {
+		".js": null
+	}
+});
+
+
+
+
+cli.launch({
+	cwd: argv.r || argv.root,
+	configPath: argv.f || argv.file
+}, function(env) {
+	let hfis = null;
+	if (!env.modulePath) {
+		hfis = require('../index.js');
+		env.modulePath = __dirname;
+	} else {
+		hfis = require(env.modulePath);
+	}
+
+	
+	hfis.cli.name = this.name;
+	hfis.cli.run(argv, env);
+});
