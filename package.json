@@ -7,6 +7,7 @@
     "hfis": "bin/hfis"
   },
   "scripts": {
+    "dev": "rm -rf ../koa-server/static && rm -rf ../koa-server/views && node bin/hfis release -c -f ../koa-server/base-fis3/fis-conf.js -r ../koa-server/base-fis3",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
