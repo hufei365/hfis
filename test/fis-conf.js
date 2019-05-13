@@ -31,14 +31,14 @@ fis.match('/node_modules/**.js', {
 //         // plugins: ["transform-es2015-unicode-regex"]
 //     }),
 // });
-// fis.match('/src/babel7/**.js', {
-//     isMod: true,
-//     parser: fis.plugin('babel-7', {
+fis.match('/src/babel7/**.js', {
+    isMod: true,
+    parser: fis.plugin('babel-7', {
         
-//         sourceMap: 'inline'
-//         // plugins: ["transform-es2015-unicode-regex"]
-//     }),
-// });
+        sourceMap: 'inline'
+        // plugins: ["transform-es2015-unicode-regex"]
+    }),
+});
 
 // fis.match('{/components/lib/require/require.js, /resource-map.js}', {
 //     isMod: false,
