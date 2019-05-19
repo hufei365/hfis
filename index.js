@@ -1,6 +1,4 @@
 
-const path = require('path');
-const util = require('util');
 const fis = module.exports = require('fis3');
 require('colors');
 
